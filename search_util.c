@@ -10,7 +10,6 @@
 // occurs. So if there are 15 words containing the letter 'x' for the particular
 // vocabulary, then this function will return 15.
 int score_letter(char letter, char **vocabulary, size_t num_words) {
-  // TODO(you): implement this function!
   int score = 0;
   for (size_t i = 0; i < num_words; i++) {
 	  if (vocabulary[i] != NULL && strchr(vocabulary[i], letter)) {
@@ -27,7 +26,6 @@ int score_letter(char letter, char **vocabulary, size_t num_words) {
 // letters*. So if the letter 'e' occurs three times, it only contributes to the
 // score once.
 int score_word(char *word, int *letter_scores) {
-  // TODO(you): implement this function!
   int score = 0;
   size_t len = strlen(word);
   char *copy = malloc(len + 1);
@@ -44,9 +42,6 @@ int score_word(char *word, int *letter_scores) {
 }
 
 // Returns the optimum guess, based on our heuristic.
-// This one works, you don't have to change it.
-// Note that this function allocates a new string every time it runs, and those
-// strings will need to be freed!
 char *get_guess(char **vocabulary, size_t num_words) {
   int letter_scores[26];
 
@@ -77,8 +72,6 @@ char *get_guess(char **vocabulary, size_t num_words) {
 // Returns the number of words that have been filtered from the vocabulary.
 size_t filter_vocabulary_gray(char letter, char **vocabulary,
                               size_t num_words) {
-
-  // TODO(you): implement this function!
   size_t cnt = 0;
   for (size_t i = 0; i < num_words; i++) {
 	  if (vocabulary[i] != NULL && strchr(vocabulary[i], letter)) {
@@ -97,7 +90,6 @@ size_t filter_vocabulary_gray(char letter, char **vocabulary,
 // Returns the number of words that have been filtered from the vocabulary.
 size_t filter_vocabulary_yellow(char letter, int position, char **vocabulary,
                                 size_t num_words) {
-  // TODO(you): implement this function!
   size_t cnt = 0;
   for (size_t i = 0; i < num_words; i++) {
 	  if (vocabulary[i] != NULL && (!strchr(vocabulary[i], letter) || vocabulary[i][position] == letter)) {
@@ -115,7 +107,6 @@ size_t filter_vocabulary_yellow(char letter, int position, char **vocabulary,
 // Returns the number of words that have been filtered from the vocabulary.
 size_t filter_vocabulary_green(char letter, int position, char **vocabulary,
                                size_t num_words) {
-  // TODO(you): implement this function!
   size_t cnt = 0;
   for (size_t i = 0; i < num_words; i++) {
 	  if (vocabulary[i] != NULL && (!strchr(vocabulary[i], letter) || vocabulary[i][position] != letter)) {
